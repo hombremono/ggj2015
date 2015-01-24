@@ -10,6 +10,7 @@ public class Tamago : MonoBehaviour {
 	private int suerte;
 	private Formas forma; 
 	Animator anim;
+	public bool Exito;
 
 	// Use this for initialization
 	void Start () {
@@ -20,7 +21,7 @@ public class Tamago : MonoBehaviour {
 		suerte = 0;
 		forma = Formas.Inicial;
 		anim = GetComponent<Animator> ();
-
+		Exito = false;
 	
 	}
 	
@@ -44,32 +45,45 @@ public class Tamago : MonoBehaviour {
 				if (fuerza == 1 && destreza == 2 && inteligencia == 2) 
 				{
 						anim.SetBool ("Pintar", true);
+						Exito = true;
 						return Formas.Cocinero;
+						
 				}
 
 				else if (fuerza == 2 && inteligencia == 2 && suerte == 1)
 				{
 					anim.SetBool ("Pintar", true);
+					Exito = true;
 					return Formas.Bombero;
+
 				}
 				else if (destreza == 3 && inteligencia == 1 && carisma == 1)
 				{
 					anim.SetBool ("Pintar", true);
+					Exito = true;
 					return Formas.Modisto;
+					
 				}
 				else if (fuerza == 2 && destreza == 2 && carisma == 1)
 				{
 					anim.SetBool ("Pintar", true);
+					Exito = true;
 					return Formas.Heroe;
+					
 				}
 				else if (destreza == 3 && inteligencia == 1 && suerte == 1)
 				{
 					anim.SetBool ("Pintar", true);
+					Exito = true;
 					return Formas.Gamer;
 				}
 				else 
 						return Formas.Muerto;
 		}
+	public string GetForma()
+	{
+		return forma.ToString ();
+	}
 
 	public void Matar(){
 		forma = Formas.Muerto;
