@@ -31,12 +31,20 @@ public class Pocion : MonoBehaviour {
 
 	void OnMouseEnter()
 	{
-		anim.SetBool ("Animacion",true);
+		SetAnimacion (true);
 	}
 	void OnMouseExit()
 	{
-		anim.SetBool ("Animacion",false);
+		SetAnimacion (false);
 	}
+
+	public void SetAnimacion(bool b){
+				anim.SetBool ("Animacion", b);
+		}
+
+	public Stats GetStat(){
+				return stat;
+		}
 }
 
 public enum Stats {
