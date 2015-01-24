@@ -3,19 +3,33 @@ using System.Collections;
 
 public class Tamago : MonoBehaviour {
 
-	int fuerza;
-	int destreza;
-	int inteligencia;
-	int carisma;
-	int suerte;
+	private int fuerza;
+	private int destreza;
+	private int inteligencia;
+	private int carisma;
+	private int suerte;
+	public bool vivo;
+	Animator anim;
 
 	// Use this for initialization
 	void Start () {
+		fuerza = 0;
+		destreza = 0;
+		inteligencia = 0;
+		carisma = 0;
+		suerte = 0;
+		vivo = true;
+		anim = GetComponent<Animator> ();
+
 	
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		if (!vivo) 
+		{
+			anim.SetBool("AnimacionMuerte",true);
+		}
 	
 	}
 
