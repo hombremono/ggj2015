@@ -13,9 +13,7 @@ public class TutoManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GameObject.)
-        {
-            
-        }
+		if (GameObject.FindObjectsOfType<Pocion>().Length == 0)
+			Application.LoadLevel("nivel1");
     }
 }

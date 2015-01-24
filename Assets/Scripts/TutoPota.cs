@@ -74,7 +74,7 @@ public class TutoPota : MonoBehaviour {
         }
 	    if (pota.transform.position.Equals(endPosition))
 	    {
-	        Destroy(this);
+			Destroy (this.gameObject);
 	    }
 	}
 }

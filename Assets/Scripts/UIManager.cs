@@ -4,6 +4,6 @@ using System.Collections;
 public class UIManager : MonoBehaviour {
 	public void StartGame()
 	{
-		Application.LoadLevel("nivel1");
+		Application.LoadLevel("tuto");
 	}	
 }
