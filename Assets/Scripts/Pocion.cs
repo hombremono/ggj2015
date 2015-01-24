@@ -6,9 +6,11 @@ public class Pocion : MonoBehaviour {
 	public Stats stat;
 	public string NOMBRE_AGREGAR_POCION;
 	public string NOMBRE_PROBETA;
+	Animator anim;
 
 	// Use this for initialization
 	void Start () {
+		anim = GetComponent<Animator> ();
 	
 	}
 	
@@ -25,6 +27,15 @@ public class Pocion : MonoBehaviour {
 
 	void OnRightClick(){
 		Debug.Log("Pressed right click on pota.");
+	}
+
+	void OnMouseEnter()
+	{
+		anim.SetBool ("Animacion",true);
+	}
+	void OnMouseExit()
+	{
+		anim.SetBool ("Animacion",false);
 	}
 }
 
