@@ -25,12 +25,12 @@ public class Probeta : MonoBehaviour
 		// Update is called once per frame
 		void Update ()
 		{
-				if (EstadoActual >= 5) {
-						Debug.Log ("Tomar pota.");
-						var obj1 = GameObject.Find (NOMBRE_TAMAGO);
-						obj1.SendMessage (NOMBRE_TOMAR_POCION, ArmarArray ());
-						Vaciar ();
-				}
+		if (EstadoActual >= 5) {
+			Debug.Log ("Tomar pota.");
+			var obj1 = GameObject.Find (NOMBRE_TAMAGO);
+			obj1.SendMessage (NOMBRE_TOMAR_POCION, ArmarArray ());
+			Vaciar ();
+		}
 
 		}
 

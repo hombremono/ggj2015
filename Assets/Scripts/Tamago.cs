@@ -8,7 +8,7 @@ public class Tamago : MonoBehaviour {
 	private int inteligencia;
 	private int carisma;
 	private int suerte;
-	public bool vivo;
+	private Formas forma; 
 	Animator anim;
 
 	// Use this for initialization
@@ -18,7 +18,7 @@ public class Tamago : MonoBehaviour {
 		inteligencia = 0;
 		carisma = 0;
 		suerte = 0;
-		vivo = true;
+		forma = Formas.Inicial;
 		anim = GetComponent<Animator> ();
 
 	
@@ -26,11 +26,9 @@ public class Tamago : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (!vivo) 
-		{
+		if (forma == Formas.Muerto) {
 			anim.SetBool("AnimacionMuerte",true);
 		}
-	
 	}
 
 	void BeberPocion(int[] arr){
@@ -39,7 +37,7 @@ public class Tamago : MonoBehaviour {
 		inteligencia = arr [2];
 		carisma = arr [3];
 		suerte = arr [4];
-		Debug.Log (Transformar ());
+		forma = Transformar ();
 	}
 
 	public Formas Transformar(){
@@ -56,9 +54,14 @@ public class Tamago : MonoBehaviour {
 				else 
 						return Formas.Muerto;
 		}
+
+	public void Matar(){
+				forma = Formas.Muerto;
+		}
 }
 
 public enum Formas {
+	Inicial,
 	Cocinero,
 	Gamer,
 	Modisto,
