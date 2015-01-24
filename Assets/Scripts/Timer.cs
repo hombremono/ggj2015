@@ -4,10 +4,12 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour {
 	public float roundTime;
+	private Tamago bicho;
 	
 	// Use this for initialization
 	void Start () {
 		roundTime = 10;
+		bicho = GameObject.Find ("Bichito").GetComponent<Tamago>();
 		
 	}
 	
@@ -20,6 +22,7 @@ public class Timer : MonoBehaviour {
 		}
 		else 
 		{
+			bicho.Matar();
 			GetComponent<Text> ().text = "muerto";
 		}
 		

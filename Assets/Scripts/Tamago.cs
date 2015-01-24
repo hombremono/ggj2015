@@ -41,22 +41,39 @@ public class Tamago : MonoBehaviour {
 	}
 
 	public Formas Transformar(){
-				if (fuerza == 1 && destreza == 2 && inteligencia == 2)
+				if (fuerza == 1 && destreza == 2 && inteligencia == 2) 
+				{
+						anim.SetBool ("Pintar", true);
 						return Formas.Cocinero;
+				}
+
 				else if (fuerza == 2 && inteligencia == 2 && suerte == 1)
-						return Formas.Bombero;
+				{
+					anim.SetBool ("Pintar", true);
+					return Formas.Bombero;
+				}
 				else if (destreza == 3 && inteligencia == 1 && carisma == 1)
-						return Formas.Modisto;
+				{
+					anim.SetBool ("Pintar", true);
+					return Formas.Modisto;
+				}
 				else if (fuerza == 2 && destreza == 2 && carisma == 1)
-						return Formas.Heroe;
+				{
+					anim.SetBool ("Pintar", true);
+					return Formas.Heroe;
+				}
 				else if (destreza == 3 && inteligencia == 1 && suerte == 1)
-						return Formas.Gamer;
+				{
+					anim.SetBool ("Pintar", true);
+					return Formas.Gamer;
+				}
 				else 
 						return Formas.Muerto;
 		}
 
 	public void Matar(){
-				forma = Formas.Muerto;
+		forma = Formas.Muerto;
+		Debug.Log("muerto");
 		}
 }
 
