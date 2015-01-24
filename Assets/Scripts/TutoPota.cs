@@ -20,7 +20,7 @@ public class TutoPota : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		pota = this.gameObject;
-	    displayText = GameObject.Find("Canvas").GetComponentsInChildren<Text>();
+	    displayText = GameObject.Find("CanvasText").GetComponentsInChildren<Text>();
 		startTime = Time.time;
 		finishAnimTime = 0f;
 		pota.transform.position = startPosition;

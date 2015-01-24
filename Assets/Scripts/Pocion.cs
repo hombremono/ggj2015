@@ -37,6 +37,14 @@ public class Pocion : MonoBehaviour {
 	{
 		anim.SetBool ("Animacion",false);
 	}
+
+	public Stats GetStat(){
+		return stat;
+	}
+
+	void SetAnimacion(bool b){
+		anim.SetBool ("Animacion", b);
+	}
 }
 
 public enum Stats {
