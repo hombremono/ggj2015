@@ -1,0 +1,28 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Tamago.cs">
+    <Files>
+      <File FileName="Assets\Scripts\Probeta.cs" Line="86" Column="21" />
+      <File FileName="Assets\Scripts\Timer.cs" Line="12" Column="35" />
+      <File FileName="Assets\Scripts\Pocion.cs" Line="13" Column="3" />
+      <File FileName="Assets\Scripts\Tamago.cs" Line="37" Column="24" />
+      <File FileName="Assets\Scripts\IconoChico.cs" Line="31" Column="31" />
+      <File FileName="Assets\Scripts\MouseClick.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State expanded="True">
+          <Node name="Assembly-CSharp" expanded="True">
+            <Node name="Scripts" expanded="True">
+              <Node name="Tamago.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

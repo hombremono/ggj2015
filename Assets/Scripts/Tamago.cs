@@ -9,7 +9,10 @@ public class Tamago : MonoBehaviour {
 	private int carisma;
 	private int suerte;
 	private Formas forma; 
-	Animator anim;
+	Animator relleno;
+	Animator trazo;
+	Animator contorno;
+	Animator nuevorelleno;
 	public bool Exito;
 
 	// Use this for initialization
@@ -20,7 +23,10 @@ public class Tamago : MonoBehaviour {
 		carisma = 0;
 		suerte = 0;
 		forma = Formas.Inicial;
-		anim = GetComponent<Animator> ();
+		relleno = transform.Find ("Relleno").GetComponent<Animator>();
+		trazo = transform.Find ("Trazo").GetComponent<Animator> ();
+		contorno = transform.Find ("Contorno").GetComponent<Animator> ();
+		nuevorelleno = transform.Find ("NuevoRelleno").GetComponent<Animator> ();
 		Exito = false;
 	
 	}
@@ -28,7 +34,10 @@ public class Tamago : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (forma == Formas.Muerto) {
-			anim.SetBool("AnimacionMuerte",true);
+			Debug.Log("muerto update");
+		relleno.SetTrigger ("Morir");
+		contorno.SetTrigger ("Morir");
+		trazo.SetTrigger ("Morir");
 		}
 	}
 
@@ -44,7 +53,10 @@ public class Tamago : MonoBehaviour {
 	public Formas Transformar(){
 				if (fuerza == 1 && destreza == 2 && inteligencia == 2) 
 				{
-						anim.SetBool ("Pintar", true);
+						relleno.SetTrigger ("Pintar");
+						nuevorelleno.SetTrigger ("Pintar");
+						contorno.SetTrigger ("Pintar");
+						trazo.SetTrigger ("Pintar");
 						Exito = true;
 						return Formas.Cocinero;
 						
@@ -52,28 +64,40 @@ public class Tamago : MonoBehaviour {
 
 				else if (fuerza == 2 && inteligencia == 2 && suerte == 1)
 				{
-					anim.SetBool ("Pintar", true);
+					relleno.SetTrigger ("Pintar");
+					nuevorelleno.SetTrigger ("Pintar");
+					contorno.SetTrigger ("Pintar");
+					trazo.SetTrigger ("Pintar");
 					Exito = true;
 					return Formas.Bombero;
 
 				}
 				else if (destreza == 3 && inteligencia == 1 && carisma == 1)
 				{
-					anim.SetBool ("Pintar", true);
+					relleno.SetTrigger ("Pintar");
+					nuevorelleno.SetTrigger ("Pintar");
+					contorno.SetTrigger ("Pintar");
+					trazo.SetTrigger ("Pintar");
 					Exito = true;
 					return Formas.Modisto;
 					
 				}
 				else if (fuerza == 2 && destreza == 2 && carisma == 1)
 				{
-					anim.SetBool ("Pintar", true);
+					relleno.SetTrigger ("Pintar");
+					nuevorelleno.SetTrigger ("Pintar");
+					contorno.SetTrigger ("Pintar");
+					trazo.SetTrigger ("Pintar");
 					Exito = true;
 					return Formas.Heroe;
 					
 				}
 				else if (destreza == 3 && inteligencia == 1 && suerte == 1)
 				{
-					anim.SetBool ("Pintar", true);
+					relleno.SetTrigger ("Pintar");
+					nuevorelleno.SetTrigger ("Pintar");
+					contorno.SetTrigger ("Pintar");
+					trazo.SetTrigger ("Pintar");
 					Exito = true;
 					return Formas.Gamer;
 				}
@@ -87,7 +111,7 @@ public class Tamago : MonoBehaviour {
 
 	public void Matar(){
 		forma = Formas.Muerto;
-		Debug.Log("muerto");
+		Debug.Log("muerto matar");
 		}
 }
 

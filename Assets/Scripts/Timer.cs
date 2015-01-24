@@ -9,8 +9,8 @@ public class Timer : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		roundTime = 10;
-		bicho = GameObject.Find ("Bichito").GetComponent<Tamago>();
-		
+
+		bicho = GameObject.Find ("Tamago").GetComponent<Tamago> ();		
 	}
 	
 	// Update is called once per frame
