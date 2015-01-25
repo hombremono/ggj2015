@@ -25,18 +25,30 @@ public class Probeta : MonoBehaviour
 		// Update is called once per frame
 		void Update ()
 		{
-		if (EstadoActual >= 5) {
-			Debug.Log ("Tomar pota.");
-			var obj1 = GameObject.Find (NOMBRE_TAMAGO);
-			obj1.SendMessage (NOMBRE_TOMAR_POCION, ArmarArray ());
-			Vaciar ();
-		}
+		    if (EstadoActual > 5)
+            {
+			    Vaciar ();
+		    }
+		    if (EstadoActual == 5)
+		    {
+                var obj1 = GameObject.Find(NOMBRE_TAMAGO);
+                if (obj1.GetComponent<Tamago>().GetForma() != Formas.Muerto.ToString())
+		        {
+                   
+                    obj1.SendMessage(NOMBRE_TOMAR_POCION, ArmarArray());
+                    if (obj1.GetComponent<Tamago>().GetForma() != Formas.Inicial.ToString())
+                    {
+                        Vaciar();
+                    }
+		        }
+                
+		    }
 
 		}
 
 		public void AgregarPota (Stats stat)
 		{
-				if (EstadoActual < 5) {
+				if (EstadoActual < 6) {
 						Debug.Log ("pota agregada");
 						if (stat == Stats.Fuerza) {
 								fuerza++;

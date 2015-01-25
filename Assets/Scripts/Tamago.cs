@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+
 public class Tamago : MonoBehaviour
 {
 
@@ -14,10 +15,13 @@ public class Tamago : MonoBehaviour
     Animator trazo;
     Animator contorno;
     Animator nuevorelleno;
+    
     public bool Exito;
     bool pidioBoton;
-    private Color colorActual;
+
     string item;
+    public Formas formaGanadora;
+    
 
     // Use this for initialization
     void Start()
@@ -34,39 +38,39 @@ public class Tamago : MonoBehaviour
         nuevorelleno = transform.Find("NuevoRelleno").GetComponent<Animator>();
         Exito = false;
         pidioBoton = false;
-        colorActual = Color.blue;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Find("Relleno").GetComponent<SpriteRenderer>().color = colorActual;
+        
         if (forma == Formas.Muerto)
         {
             Debug.Log("muerto update");
             relleno.SetTrigger("Morir");
             contorno.SetTrigger("Morir");
             trazo.SetTrigger("Morir");
-            if (!pidioBoton)
+            GameObject.Find("Problema").GetComponent<Animator>().SetTrigger("Loose");
+            if (!pidioBoton && !Exito)
             {
+
                 GameObject.Find("RetryButton").SendMessage("Mostrar", true);
                 pidioBoton = true;
             }
 
         }
-        nuevorelleno = transform.Find("NuevoRelleno").GetComponent<Animator>();
-
-        if (nuevorelleno.GetCurrentAnimatorStateInfo(0).normalizedTime == 1 && !nuevorelleno.IsInTransition(0))
+        else
         {
-            Debug.Log("it works!");
+            if (forma.ToString() == formaGanadora.ToString())
+            {
+                GameObject.Find("Problema").GetComponent<Animator>().SetTrigger("Win");
+            }
         }
-    }
-
-    public void CambiarColor(Color nuevoColor)
-    {
-        colorActual = nuevoColor;
 
     }
+
+
 
     void BeberPocion(int[] arr)
     {
@@ -80,21 +84,22 @@ public class Tamago : MonoBehaviour
 
     public Formas Transformar()
     {
-        if (fuerza == 1 && destreza == 2 && inteligencia == 2 && item.Equals("BigCocinero"))
+        if (fuerza == 1 && destreza == 2 && inteligencia == 2 && !string.IsNullOrEmpty(item) && item.Equals("BigCocinero"))
         {
+            nuevorelleno.GetComponent<SpriteRenderer>().color = new Color(0.67f, 0.82f, 0.29f, 1f);
             relleno.SetTrigger("Pintar");
             nuevorelleno.SetTrigger("Pintar");
             contorno.SetTrigger("Pintar");
             trazo.SetTrigger("Pintar");
             Exito = true;
-            colorActual = Color.red;
-
+           
             return Formas.Cocinero;
 
         }
 
-        else if (fuerza == 2 && inteligencia == 2 && suerte == 1 && item.Equals("BigBombero"))
+        else if (fuerza == 2 && inteligencia == 2 && suerte == 1 && !string.IsNullOrEmpty(item) && item.Equals("BigBombero"))
         {
+            nuevorelleno.GetComponent<SpriteRenderer>().color = new Color(0.46f, 0.63f, 0.8f, 1f);
             relleno.SetTrigger("Pintar");
             nuevorelleno.SetTrigger("Pintar");
             contorno.SetTrigger("Pintar");
@@ -113,8 +118,9 @@ public class Tamago : MonoBehaviour
             return Formas.Modisto;
 
         }
-        else if (fuerza == 2 && destreza == 2 && carisma == 1 && item.Equals("BigHero"))
+        else if (fuerza == 2 && destreza == 2 && carisma == 1 && !string.IsNullOrEmpty(item) && item.Equals("BigHero"))
         {
+            nuevorelleno.GetComponent<SpriteRenderer>().color = new Color(1, 0, 0, 1);
             relleno.SetTrigger("Pintar");
             nuevorelleno.SetTrigger("Pintar");
             contorno.SetTrigger("Pintar");
@@ -123,7 +129,8 @@ public class Tamago : MonoBehaviour
             return Formas.Heroe;
 
         }
-        else if (destreza == 3 && inteligencia == 1 && suerte == 1 && item.Equals("BigGamer"))
+        else if (destreza == 3 && inteligencia == 1 && suerte == 1 && !string.IsNullOrEmpty(item) &&
+                 item.Equals("BigGamer"))
         {
             relleno.SetTrigger("Pintar");
             nuevorelleno.SetTrigger("Pintar");
@@ -133,7 +140,10 @@ public class Tamago : MonoBehaviour
             return Formas.Gamer;
         }
         else
-            return Formas.Muerto;
+        {
+            Exito = false;
+            return Formas.Inicial;   
+        }
     }
     public string GetForma()
     {

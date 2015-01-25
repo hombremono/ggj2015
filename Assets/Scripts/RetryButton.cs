@@ -12,6 +12,7 @@ public class RetryButton : MonoBehaviour {
 	public float speed;
 	GameObject retryButton;
 	bool mostrar;
+    public string EscenaActual;
 
 
 	// Use this for initialization
@@ -37,7 +38,7 @@ public class RetryButton : MonoBehaviour {
 	void OnLeftClick(){
 
 		retryButton.GetComponent<SpriteRenderer> ().sprite = pressedSprite;
-		Application.LoadLevel("nivel1");
+		Application.LoadLevel(EscenaActual);
 	}
 	
 	void OnRightClick(){

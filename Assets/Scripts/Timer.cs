@@ -29,7 +29,7 @@ public class Timer : MonoBehaviour {
 			else 
 			{
 				bicho.Matar();
-				GetComponent<Text> ().text = "Muerto!";
+				GetComponent<Text> ().text = "00:00";
 			}
 
 		}
