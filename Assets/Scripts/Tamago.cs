@@ -15,6 +15,7 @@ public class Tamago : MonoBehaviour {
 	Animator nuevorelleno;
 	public bool Exito;
 	bool pidioBoton;
+    private Color colorActual;
 
 	// Use this for initialization
 	void Start () {
@@ -30,10 +31,13 @@ public class Tamago : MonoBehaviour {
 		nuevorelleno = transform.Find ("NuevoRelleno").GetComponent<Animator> ();
 		Exito = false;
 		pidioBoton = false;
+	    colorActual = Color.blue;
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+	{
+	    transform.Find("Relleno").GetComponent<SpriteRenderer>().color = colorActual;
 		if (forma == Formas.Muerto) {
 			Debug.Log("muerto update");
 			relleno.SetTrigger ("Morir");
@@ -43,10 +47,23 @@ public class Tamago : MonoBehaviour {
 				GameObject.Find ("RetryButton").SendMessage ("Mostrar", true);
 				pidioBoton = true;
 			}
+            
 		}
+        nuevorelleno = transform.Find("NuevoRelleno").GetComponent<Animator>();
+
+	    if (nuevorelleno.GetCurrentAnimatorStateInfo(0).normalizedTime == 1 && !nuevorelleno.IsInTransition(0))
+	    {
+	        Debug.Log("it works!");
+	    }
 	}
 
-	void BeberPocion(int[] arr){
+    public void CambiarColor(Color nuevoColor)
+    {
+        colorActual = nuevoColor;
+
+    }
+
+    void BeberPocion(int[] arr){
 		fuerza = arr [0];
 		destreza = arr [1];
 		inteligencia = arr [2];
@@ -63,8 +80,10 @@ public class Tamago : MonoBehaviour {
 						contorno.SetTrigger ("Pintar");
 						trazo.SetTrigger ("Pintar");
 						Exito = true;
-						return Formas.Cocinero;
-						
+				    colorActual = Color.red;
+
+                        return Formas.Cocinero;
+
 				}
 
 				else if (fuerza == 2 && inteligencia == 2 && suerte == 1)
