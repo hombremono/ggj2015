@@ -55,7 +55,6 @@
      <Compile Include="Assets\Scripts\Stats.cs" />
      <Compile Include="Assets\Scripts\Tamago.cs" />
      <Compile Include="Assets\Scripts\Timer.cs" />
-     <Compile Include="Assets\Scripts\TutoManager.cs" />
      <Compile Include="Assets\Scripts\TutoPota.cs" />
      <Compile Include="Assets\Scripts\UIManager.cs" />
      <None Include="Assets\New Text Document.txt" />

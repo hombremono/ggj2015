@@ -62,6 +62,7 @@ public class Tamago : MonoBehaviour
         }
         else
         {
+
             if (forma.ToString() == formaGanadora.ToString())
             {
                 GameObject.Find("Problema").GetComponent<Animator>().SetTrigger("Win");
