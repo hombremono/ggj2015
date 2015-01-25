@@ -3,12 +3,13 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class Timer : MonoBehaviour {
-	public float roundTime;
+	private float roundTime;
+    public float inicialTime;
 	private Tamago bicho;
 	
 	// Use this for initialization
 	void Start () {
-		roundTime = 10;
+		roundTime = inicialTime;
 
 		bicho = GameObject.Find ("Tamago").GetComponent<Tamago> ();		
 	}
