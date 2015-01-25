@@ -14,6 +14,7 @@ public class Tamago : MonoBehaviour {
 	Animator contorno;
 	Animator nuevorelleno;
 	public bool Exito;
+	bool pidioBoton;
 
 	// Use this for initialization
 	void Start () {
@@ -28,16 +29,20 @@ public class Tamago : MonoBehaviour {
 		contorno = transform.Find ("Contorno").GetComponent<Animator> ();
 		nuevorelleno = transform.Find ("NuevoRelleno").GetComponent<Animator> ();
 		Exito = false;
-	
+		pidioBoton = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (forma == Formas.Muerto) {
 			Debug.Log("muerto update");
-		relleno.SetTrigger ("Morir");
-		contorno.SetTrigger ("Morir");
-		trazo.SetTrigger ("Morir");
+			relleno.SetTrigger ("Morir");
+			contorno.SetTrigger ("Morir");
+			trazo.SetTrigger ("Morir");
+			if (!pidioBoton) {
+				GameObject.Find ("RetryButton").SendMessage ("Mostrar", true);
+				pidioBoton = true;
+			}
 		}
 	}
 
