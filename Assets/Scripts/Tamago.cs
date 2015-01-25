@@ -65,6 +65,7 @@ public class Tamago : MonoBehaviour
             if (forma.ToString() == formaGanadora.ToString())
             {
                 GameObject.Find("Problema").GetComponent<Animator>().SetTrigger("Win");
+                Exito = true;
             }
         }
 
@@ -84,64 +85,105 @@ public class Tamago : MonoBehaviour
 
     public Formas Transformar()
     {
-        if (fuerza == 1 && destreza == 2 && inteligencia == 2 && !string.IsNullOrEmpty(item) && item.Equals("BigCocinero"))
+        if (destreza == 2 && inteligencia == 1 && carisma == 2)
         {
             nuevorelleno.GetComponent<SpriteRenderer>().color = new Color(0.67f, 0.82f, 0.29f, 1f);
             relleno.SetTrigger("Pintar");
             nuevorelleno.SetTrigger("Pintar");
             contorno.SetTrigger("Pintar");
             trazo.SetTrigger("Pintar");
-            Exito = true;
-           
-            return Formas.Cocinero;
+            
+            if (!string.IsNullOrEmpty(item) && item.Equals("BigCocinero"))
+            {
+                
+                return Formas.Cocinero;
+            }
+            else
+            {
+                return Formas.Inicial;
+            }
 
         }
 
-        else if (fuerza == 2 && inteligencia == 2 && suerte == 1 && !string.IsNullOrEmpty(item) && item.Equals("BigBombero"))
+        else if (fuerza == 2 && destreza == 1 && carisma == 1 && suerte == 1 )
         {
             nuevorelleno.GetComponent<SpriteRenderer>().color = new Color(0.46f, 0.63f, 0.8f, 1f);
             relleno.SetTrigger("Pintar");
             nuevorelleno.SetTrigger("Pintar");
             contorno.SetTrigger("Pintar");
             trazo.SetTrigger("Pintar");
-            Exito = true;
-            return Formas.Bombero;
+
+            if (!string.IsNullOrEmpty(item) && item.Equals("BigBombero"))
+            {
+                //Exito = true;
+                return Formas.Bombero;
+            }
+            else
+            {
+                return Formas.Inicial;
+            }
+            
 
         }
-        else if (destreza == 3 && inteligencia == 1 && carisma == 1 && item.Equals("BigModisto"))
+        else if (destreza == 3 && inteligencia == 1 && carisma == 1)
         {
+            nuevorelleno.GetComponent<SpriteRenderer>().color = Color.yellow;
             relleno.SetTrigger("Pintar");
             nuevorelleno.SetTrigger("Pintar");
             contorno.SetTrigger("Pintar");
             trazo.SetTrigger("Pintar");
-            Exito = true;
-            return Formas.Modisto;
+            if (!string.IsNullOrEmpty(item) && item.Equals("BigModisto"))
+            {
+                //Exito = true;
+                return Formas.Modisto;
+            }
+            else
+            {
+                return Formas.Inicial;
+            }
+            
 
         }
-        else if (fuerza == 2 && destreza == 2 && carisma == 1 && !string.IsNullOrEmpty(item) && item.Equals("BigHero"))
+        else if (fuerza == 2 && destreza == 2 && carisma == 1 )
         {
             nuevorelleno.GetComponent<SpriteRenderer>().color = new Color(1, 0, 0, 1);
             relleno.SetTrigger("Pintar");
             nuevorelleno.SetTrigger("Pintar");
             contorno.SetTrigger("Pintar");
             trazo.SetTrigger("Pintar");
-            Exito = true;
-            return Formas.Heroe;
+            if (!string.IsNullOrEmpty(item) && item.Equals("BigHero"))
+            {
+                //Exito = true;
+                return Formas.Heroe;
+            }
+            else
+            {
+                return Formas.Inicial;
+            }
+            
 
         }
-        else if (destreza == 3 && inteligencia == 1 && suerte == 1 && !string.IsNullOrEmpty(item) &&
-                 item.Equals("BigGamer"))
+        else if (destreza == 3 && inteligencia == 1 && suerte == 1)
         {
+            nuevorelleno.GetComponent<SpriteRenderer>().color = Color.cyan;
             relleno.SetTrigger("Pintar");
             nuevorelleno.SetTrigger("Pintar");
             contorno.SetTrigger("Pintar");
             trazo.SetTrigger("Pintar");
-            Exito = true;
-            return Formas.Gamer;
+            if (  !string.IsNullOrEmpty(item) && item.Equals("BigGamer"))
+            {
+               // Exito = true;
+                return Formas.Gamer;
+            }
+            else
+            {
+                return Formas.Inicial;
+            }
+            
         }
         else
         {
-            Exito = false;
+           // Exito = false;
             return Formas.Inicial;   
         }
     }
