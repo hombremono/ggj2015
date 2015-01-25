@@ -18,7 +18,8 @@ public class UIManager : MonoBehaviour {
 
 	public void StartGame()
 	{
-		Application.LoadLevel("tuto");
+        //Application.LoadLevel("tuto");
+        Nivel1();
 	}
 
     public void ExitGame()
