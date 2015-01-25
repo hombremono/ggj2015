@@ -42,7 +42,7 @@ public class IconoChico : MonoBehaviour {
 		}
 		Debug.Log("Pressed left click on icono chico.");
 		GameObject.Find (BigIconName).GetComponent<SpriteRenderer> ().color = new Color (1f,1f,1f,1f);
-
+        GameObject.Find("recuadros").GetComponentInChildren<Tamago>().SendMessage("SetItem", BigIconName);
 
 
 	}
