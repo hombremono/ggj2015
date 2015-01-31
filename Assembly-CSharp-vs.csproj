@@ -49,6 +49,8 @@
      <Compile Include="Assets\Scripts\Enums\Formas.cs" />
      <Compile Include="Assets\Scripts\Enums\Stats.cs" />
      <Compile Include="Assets\Scripts\IconoChico.cs" />
+     <Compile Include="Assets\Scripts\Model\Tamagotchi.cs" />
+     <Compile Include="Assets\Scripts\Model\TestTube.cs" />
      <Compile Include="Assets\Scripts\MouseClick.cs" />
      <Compile Include="Assets\Scripts\Pocion.cs" />
      <Compile Include="Assets\Scripts\Probeta.cs" />

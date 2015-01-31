@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Assets.Scripts;
 
 public class Pocion : MonoBehaviour {
 
@@ -47,10 +48,3 @@ public class Pocion : MonoBehaviour {
 	}
 }
 
-public enum Stats {
-	Fuerza,
-	Destreza,
-	Inteligencia,
-	Carisma,
-	Suerte
-}

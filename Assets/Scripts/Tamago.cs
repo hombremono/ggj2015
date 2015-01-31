@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Assets.Scripts;
 
 
 public class Tamago : MonoBehaviour
@@ -206,13 +207,3 @@ public class Tamago : MonoBehaviour
     }
 }
 
-public enum Formas
-{
-    Inicial,
-    Cocinero,
-    Gamer,
-    Modisto,
-    Bombero,
-    Heroe,
-    Muerto
-}
